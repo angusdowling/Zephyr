@@ -106,12 +106,10 @@ final class Zephyr {
 	 */
 	public function zephyr($atts) {
 		$atts = shortcode_atts( array(
-			'percent' => '',
-			'min_fee' => '',
-			'max_fee' => '',
+			'placeholder' => '',
 		), $atts, 'zephyr' );
 
-		return $this->render_component_library();
+		return $this->render();
 	}
 
 	/**
@@ -124,7 +122,7 @@ final class Zephyr {
 		wp_enqueue_style( 'zephyr-admin/css', ZPR()->plugin_url() . '/build/admin.css', array(), '1.0.0');
 	}
 
-	static function render_component_library() {
+	static function render() {
 		echo '<div class="zephyr-wrapper" class="wrap"></div>';
 	}
 
