@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Zephyr
- * Plugin URI: https://angusdowling.net
+ * Plugin URI: https://github.com/angusdowling/zephyr
  * Description: A react-based post type reloader.
  * Version: 1.0.0
  * Author: Angus Dowling
