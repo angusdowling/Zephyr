@@ -22,7 +22,7 @@ Zephyr
 2. Navigate to the plugin directory, install `npm` dependencies, and run the dev build command:
 
 ```
-cd /path/to/wordpress/wp-content/plugins/wp-react-boilerplate
+cd /path/to/wordpress/wp-content/plugins/zephyr
 npm install
 npm run dev
 ```
