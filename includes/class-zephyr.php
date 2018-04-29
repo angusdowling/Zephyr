@@ -38,6 +38,7 @@ final class Zephyr {
 		if ( is_null( self::$_instance ) ) {
 			self::$_instance = new self();
 		}
+		
 		return self::$_instance;
 	}
 
@@ -46,13 +47,12 @@ final class Zephyr {
 	 */
 	public function __construct() {
 		$this->define_constants();
-		// $this->includes();
 		$this->init_hooks();
 
 		do_action( 'zephyr_loaded' );
-    }
+	}
     
-    /**
+	/**
 	 * Get the plugin url.
 	 *
 	 * @return string
@@ -70,25 +70,7 @@ final class Zephyr {
 		return untrailingslashit( plugin_dir_path( ZPR_PLUGIN_FILE ) );
 	}
 
-	/**
-	 * Get the template path.
-	 *
-	 * @return string
-	 */
-	public function template_path() {
-		return apply_filters( 'woocommerce_template_path', 'woocommerce/' );
-	}
-
-	/**
-	 * Get Ajax URL.
-	 *
-	 * @return string
-	 */
-	public function ajax_url() {
-		return admin_url( 'admin-ajax.php', 'relative' );
-	}
-
-    /**
+    	/**
 	 * Hook into actions and filters.
 	 *
 	 * @since 1.0
@@ -96,16 +78,16 @@ final class Zephyr {
 	private function init_hooks() {
 		add_shortcode( 'zephyr', array( $this, 'zephyr') );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-    }
+    	}
     
-    /**
+    	/**
 	 * Define ZPR Constants.
 	 */
-    private function define_constants() {
-        $this->define( 'ZPR_ABSPATH', dirname( ZPR_PLUGIN_FILE ) . '/' );
-    }
+	private function define_constants() {
+		$this->define( 'ZPR_ABSPATH', dirname( ZPR_PLUGIN_FILE ) . '/' );
+	}
 
-    /**
+	/**
 	 * Define constant if not already set.
 	 *
 	 * @param string      $name  Constant name.
@@ -117,7 +99,7 @@ final class Zephyr {
 		}
 	}
 
-    /**
+	/**
 	 * Initialize Zephyr (shortcode).
 	 * @param  array $atts
 	 * @return string
@@ -132,13 +114,13 @@ final class Zephyr {
 		return $this->render_component_library();
 	}
 
-    /**
+	/**
 	 * Enqueue scripts and styles.
 	 */
 	public function enqueue_scripts() {
 		wp_enqueue_script( 'zephyr/js', ZPR()->plugin_url() . '/build/widget.js' , array(), '1.0.0', true );
-        wp_enqueue_style( 'zephyr/css', ZPR()->plugin_url() . '/build/widget.css', array(), '1.0.0');
-        wp_enqueue_script( 'zephyr-admin/js', ZPR()->plugin_url() . '/build/admin.js', array(), '1.0.0', true );
+        	wp_enqueue_style( 'zephyr/css', ZPR()->plugin_url() . '/build/widget.css', array(), '1.0.0');
+        	wp_enqueue_script( 'zephyr-admin/js', ZPR()->plugin_url() . '/build/admin.js', array(), '1.0.0', true );
 		wp_enqueue_style( 'zephyr-admin/css', ZPR()->plugin_url() . '/build/admin.css', array(), '1.0.0');
 	}
 
